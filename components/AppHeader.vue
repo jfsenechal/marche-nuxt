@@ -1,3 +1,6 @@
+<script setup>
+
+</script>
 <template>
   <header class="w-full shadow-lg h-20">
     <nav>
@@ -6,16 +9,13 @@
           <NuxtLink to="/">Home</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/about">About</NuxtLink>
+          <router-link :to="{ name: 'article-id', params:{id: 5} }">Article</router-link>
         </li>
         <li>
-          <NuxtLink to="/category/38">Catégorie</NuxtLink>
+          <router-link :to="{ name: 'people-id', params:{people:'rere',id: 5} }">People</router-link>
         </li>
         <li>
-          <NuxtLink to="/article/1">Post 1</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/article/2">Post 2</NuxtLink>
+          <NuxtLink to="/article/5">Culture</NuxtLink>
         </li>
       </ul>
     </nav>

@@ -1,0 +1,32 @@
+
+@import "assets/css/fonts.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    html {
+        @apply scroll-pt-3 scroll-smooth font-montserrat-regular text-base;
+        /* see https://www.getrevue.co/profile/shrutibalasa/issues/did-you-know-about-scroll-padding-easy-solution-to-fixed-header-problem-1325973 */
+    }
+
+    body {
+        @apply antialiased text-cta-dark;
+    }
+
+    img, video, iframe {
+        @apply object-cover max-w-full object-top-center;
+        block-size: auto;
+        /*max-inline-size: 100%;*/
+        /* see https://web.dev/learn/design/responsive-images/ */
+    }
+}
+
+@layer components {
+    #app {
+        @apply grid min-h-screen;
+        grid-template-rows: auto 1fr auto;
+    }
+}

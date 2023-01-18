@@ -12,23 +12,19 @@ console.log(router.getRoutes())
           <NuxtLink to="/">Home</NuxtLink>
         </li>
         <li>
-        <NuxtLink :to="{ name: 'site-slug', params: { site:'culture',slug: 'musees' }}">popol</NuxtLink>
-</li>
-        <li>
-          <NuxtLink :to="{ name: 'site-slug', params: { site:'culture',slug: 'musees' }}">popol</NuxtLink>
-          <router-link :to="{ name: 'slug', params:{slug: 'environnement'} }">
+          <NuxtLink :to="{ name: 'slug', params: { slug: 'environnement' }}">
             Citoyen/environnement
-          </router-link>
+          </NuxtLink>
         </li>
         <li>
-          <router-link :to="{ name: 'site-slug', params:{site:'culture',slug: 'musees'} }">
+          <NuxtLink :to="{ name: 'site-slug', params: { site:'culture',slug: 'musees' }}">
             Culture/Musees
-          </router-link>
+          </NuxtLink>
         </li>
         <li>
-          <router-link :to="{ name: 'site-slug', params:{site:'culture',slug: 'musees'} }">
+          <NuxtLink :to="{ name: 'site-slug', params: { site:'culture',slug: 'musees' }}">
             Culture/Musees/Fam
-          </router-link>
+          </NuxtLink>
         </li>
         <li>
           <NuxtLink to="/article/5">Article 5</NuxtLink>

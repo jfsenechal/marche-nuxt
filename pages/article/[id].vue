@@ -11,6 +11,8 @@ watch(post, (newPost) => {
   console.log(pending)
 })
 
+//const foo = articleGet(id)
+
 definePageMeta({
   validate: async (route) => {
     const nuxtApp = useNuxtApp()

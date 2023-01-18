@@ -1,5 +1,6 @@
 <script setup>
-
+const type = 'article'
+const item = {id: 5}
 </script>
 <template>
   <header class="w-full shadow-lg h-20">
@@ -9,13 +10,17 @@
           <NuxtLink to="/">Home</NuxtLink>
         </li>
         <li>
-          <router-link :to="{ name: 'article-id', params:{id: 5} }">Article</router-link>
+          <router-link :to="{ name: 'site-slug', params:{site:'culture',slug: 'musees'} }">
+            Culture/Musees
+          </router-link>
         </li>
         <li>
-          <router-link :to="{ name: 'people-id', params:{people:'rere',id: 5} }">People</router-link>
+          <NuxtLink to="/article/5">Article 5</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/article/5">Culture</NuxtLink>
+          <NuxtLink :to="`/${type}/${item.id}`">
+            Article 5
+          </NuxtLink>
         </li>
       </ul>
     </nav>

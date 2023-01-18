@@ -1,4 +1,6 @@
 <script setup>
+import Article from "~/components/Article.vue";
+
 const type = 'article'
 const item = {id: 5}
 const router = useRouter();
@@ -17,12 +19,13 @@ console.log(router.getRoutes())
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink :to="{ name: 'site-slug-category', params: { site:'culture',slug: 'musees' }}">
+          <NuxtLink
+              :to="{ path:'zz', component: Article,name: 'site-slugCategory', params: { site:'culture',slugCategory: 'musees' }}">
             Culture/Musees
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink :to="{ name: 'site-slug-article', params: { site:'culture',slug: 'musees' }}">
+          <NuxtLink :to="{ name: 'site-slugArticle', params: { site:'culture',slugArticle: 'musees' }}">
             Culture/Musees/Fam
           </NuxtLink>
         </li>

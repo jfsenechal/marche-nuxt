@@ -10,5 +10,6 @@ console.log(slug)
 <template>
   <div>
     Article {{slug}} dans le site {{site}}
+    <Article/>
   </div>
 </template>

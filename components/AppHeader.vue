@@ -17,12 +17,12 @@ console.log(router.getRoutes())
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink :to="{ name: 'site-slug', params: { site:'culture',slug: 'musees' }}">
+          <NuxtLink :to="{ name: 'site-slug-category', params: { site:'culture',slug: 'musees' }}">
             Culture/Musees
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink :to="{ name: 'site-slug', params: { site:'culture',slug: 'musees' }}">
+          <NuxtLink :to="{ name: 'site-slug-article', params: { site:'culture',slug: 'musees' }}">
             Culture/Musees/Fam
           </NuxtLink>
         </li>

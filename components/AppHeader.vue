@@ -14,7 +14,7 @@ console.log(router.getRoutes())
           <NuxtLink to="/">Home</NuxtLink>
         </li>
         <li>
-          <NuxtLink :to="{ name: 'slug', params: { slug: 'environnement' }}">
+          <NuxtLink :to="{ name: 'site-slugCategory', params: { slugCategory: 'environnement' }}">
             Citoyen/environnement
           </NuxtLink>
         </li>
@@ -28,9 +28,6 @@ console.log(router.getRoutes())
           <NuxtLink :to="{ name: 'site-slugArticle', params: { site:'culture',slugArticle: 'musees' }}">
             Culture/Musees/Fam
           </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/article/5">Article 5</NuxtLink>
         </li>
         <li>
           <NuxtLink :to="`/${type}/${item.id}`">

@@ -9,7 +9,7 @@ console.log(slug)
 </script>
 <template>
   <div>
-    Article {{slug}} dans le site {{site}}
-    <Article/>
+    Article {{ slug }} dans le site {{ site }}
+
   </div>
 </template>

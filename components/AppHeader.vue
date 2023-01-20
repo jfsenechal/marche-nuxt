@@ -2,12 +2,10 @@
 const type = 'article'
 const item = {id: 5}
 const router = useRouter();
-console.log(router.getRoutes())
+//console.log(router.getRoutes())
 
 const {pending, data: items, error} = useLazyFetch(`https://www.marche.be/api/menu.php`)
 watch(items, (newPost) => {
-  console.log(items, newPost)
-  console.log(pending)
 })
 
 </script>
@@ -23,9 +21,17 @@ watch(items, (newPost) => {
             <NuxtLink to="/">Home</NuxtLink>
           </li>
           <li v-for="item in items" :key="item.blogid">
-            <NuxtLink :to="{name: 'site', params:{site:item.name}}">{{ item.name }}</NuxtLink>
+            <NuxtLink :to="{name: 'site', params:{site:item.slug}}">{{ item.name }}</NuxtLink>
           </li>
-          <!--   <li>
+          <!--
+            <li>
+            <NuxtLink :to="{name: 'site-slugArticle', params:{
+              site:'iki',
+                slugArticle: 'zeze' }}">
+              dfdf
+            </NuxtLink>
+          </li>
+            <li>
               <NuxtLink
                   :to="{ name: 'site-categories-slugCategory', params: {
                   site:'citoyen',

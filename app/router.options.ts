@@ -13,14 +13,14 @@ export default <RouterConfig>{
             component: () => import('~/pages/category.vue')
         },
         {
-            name: 'site_index',
+            name: 'siteIndex',
             path: '/:siteSlug(administration|culture|economie|enfance-jeunesse|sante|social|sport|tourisme)',
             component: () => import('~/pages/site.vue')
         },
         {
             name: 'homepage',
             path: '/',
-            component: () => import('~/pages/home.vue')
+            component: () => import('~/pages/homepage.vue')
         }
     ],
 }

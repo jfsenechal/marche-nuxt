@@ -4,28 +4,29 @@ const siteSlug = computed(() => String(route.params.siteSlug || 'pas slug'))
 const articleId = computed(() => Number(route.params.articleId || 0))
 const articleSlug = computed(() => String(route.params.articleSlug || 'no slug'))
 const categories = computed(() => String(route.params.categories || 'no cats'))
+const {
+  pending2,
+  data: article,
+  error
+} = useLazyFetch(`https://www.marche.be/api/post.php?site=${siteSlug.value}&id=${articleId.value}`)
+console.log(`https://www.marche.be/api/post.php?id=${articleId.value}&site=${siteSlug.value}`)
+watch(article, (newPost) => {
+  console.log(article, newPost)
+  console.log(pending2)
+  console.log(newPost)
+})
 </script>
 <template>
   <section>
-    <h1>Article</h1>
-    <table class="">
-      <tr>
-        <th>site</th>
-        <td>{{ siteSlug }}</td>
-      </tr>
-      <tr>
-        <th>categories</th>
-        <td>{{ categories }}</td>
-      </tr>
-      <tr>
-        <th>id</th>
-        <td>{{ articleId }}</td>
-      </tr>
-      <tr>
-        <th>slug</th>
-        <td>{{ articleSlug }}</td>
-      </tr>
-    </table>
-
+    <div v-if="pending2">
+      Loading Article...
+    </div>
+    <div v-if="error">
+      Error {{ error }}
+    </div>
+    <div v-else>
+      <h3 class="text-2xl font-bold">{{ article.post_title ?? 'no title' }}</h3>
+      <div v-html="article.post_content ?? 'no content'"></div>
+    </div>
   </section>
 </template>

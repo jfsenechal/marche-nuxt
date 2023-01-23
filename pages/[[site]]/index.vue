@@ -30,7 +30,6 @@ const {pending, data: item, error} = useLazyFetch(`https://www.marche.be/api/men
           }" v-if="child.object === 'post' || child.object === 'page'">
             {{ child.object }}: {{ child.title }}
           </NuxtLink>
-
           <p v-if="child.object !== 'post' && child.object !== 'page' && child.object !== 'category' ">
             {{ child.object }}: {{ child.title }}
           </p>

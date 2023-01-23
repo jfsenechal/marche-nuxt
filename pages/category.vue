@@ -6,6 +6,21 @@ const slug = computed(() => String(route.params.categorySlug || '/'))
 </script>
 <template>
   <section>
-    Category <strong>site</strong> {{ site }} <strong>categories</strong> {{categories}} <strong>slug</strong> {{ slug }}
+    Category
+    <table class="">
+      <tr>
+        <th>site</th>
+        <td>{{ site }}</td>
+      </tr>
+      <tr>
+        <th>Catégories</th>
+        <td>{{ categories }}</td>
+      </tr>
+      <tr>
+        <th>Slug</th>
+        <td>{{ slug }}</td>
+      </tr>
+    </table>
+
   </section>
 </template>

@@ -18,12 +18,12 @@ export default <RouterConfig>{
             component: () => import('~/pages/site.vue')
         },
         {
-            name: 'site',
-            path: '/site/:slug(\\w+)',
+            name: 'site_index',
+            path: '/:siteSlug(administration|culture|economie|enfance-jeunesse|sante|social|sport|tourisme)',
             component: () => import('~/pages/site.vue')
         },
         {
-            name: 'home',
+            name: 'homepage',
             path: '/',
             component: () => import('~/pages/home.vue')
         }
@@ -43,3 +43,7 @@ export default <RouterConfig>{
 // http://localhost:3000/famille/naissance/consultations-one-205
 // http://localhost:3000/famille/naissance/consultations-one-205/
 // http://localhost:3000/sante/centres-medicaux-services/hopital-princesse-paola-ifac-vivalia-8
+// http://localhost:3000/ze-ze/zozo/sport
+// http://localhost:3000/ze-ze/zozo/sport/
+// http://localhost:3000/ze-ze/zozo/enfance-jeunesse
+// http://localhost:3000/famille/naissance/consultations-one-205

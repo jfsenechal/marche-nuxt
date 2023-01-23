@@ -19,7 +19,7 @@ watch(items, (newPost) => {
       <nav class="m-auto w-[60%]">
         <ul class="flex flex-row gap-3">
           <li>
-            <NuxtLink to="/" class="
+            <NuxtLink :to="{name: 'homepage'}" class="
           font-bold
           pb-2
           bg-gradient-to-r from-pink-500 to-purple-500
@@ -30,6 +30,20 @@ watch(items, (newPost) => {
           duration-500
           hover:bg-[length:100%_3px]
       ">Home
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink :to="{name: 'site_index', params: {'siteSlug':'economie'}}" class="
+          font-bold
+          pb-2
+          bg-gradient-to-r from-pink-500 to-purple-500
+          bg-[length:0px_3px]
+          bg-left-bottom
+          bg-no-repeat
+          transition-[background-size]
+          duration-500
+          hover:bg-[length:100%_3px]
+      ">Economie
             </NuxtLink>
           </li>
           <!--  <li v-for="item in items" :key="item.blogid">

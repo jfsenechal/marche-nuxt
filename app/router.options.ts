@@ -21,6 +21,11 @@ export default <RouterConfig>{
             name: 'homepage',
             path: '/',
             component: () => import('~/pages/homepage.vue')
+        },
+        {
+            name: 'notfound',
+            path: '/:pathMatch(.*)*',
+            component: () => import('~/pages/notfound.vue')
         }
     ],
 }

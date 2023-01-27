@@ -4,12 +4,12 @@ export default <RouterConfig>{
     routes: (_routes) => [
         {
             name: 'article',
-            path: '/:siteSlug(administration|culture|economie|enfance-jeunesse|sante|social|sport|tourisme)/:categories([\/a-z]+)\/:articleSlug([a-z-]+-):articleId(\\d+$)',
+            path: '/:siteSlug(administration|culture|economie|enfance-jeunesse|sante|social|sport|tourisme)/:categories([a-z-_]+)+\/:articleSlug([a-z-]+-):articleId(\\d+$)',
             component: () => import('~/pages/article.vue')
         },
         {
             name: 'category',
-            path: '/:siteSlug(administration|culture|economie|enfance-jeunesse|sante|social|sport|tourisme)/:categories([\/a-z-]+)\/:categorySlug(\\w+)',
+            path: '/:siteSlug(administration|culture|economie|enfance-jeunesse|sante|social|sport|tourisme)/:categories([a-z-_]+)+\/:categorySlug(\\w+)',
             component: () => import('~/pages/category.vue')
         },
         {
@@ -30,10 +30,10 @@ export default <RouterConfig>{
 
 // la fin d'url avec un tiret et un ou plusiers chiffres (?:-)(\d+)(?:\/?)$ capture 23
 
-// http://localhost:3000/ze-ze/zozo/mu
-// http://localhost:3000/zeze/zozo/zizi/mu-23
-// http://localhost:3000/memo/lolo/bculture/culture/bibliotheque-et-ludotheque-provinciales-du-luxembourg-23
-// http://localhost:3000/ze-ze/zozo/mu
+// http://localhost:3000/sport/zozo/mu
+// http://localhost:3000/social/zozo/zizi/mu-23
+// http://localhost:3000/culture/lolo/li-li/bculture/culture/bibliotheque-et-ludotheque-provinciales-du-luxembourg-23
+// http://localhost:3000/culture/ze-ze/zo_zo/mu
 // http://localhost:3000/sante/centres-medicaux-services/
 // http://localhost:3000/famille/naissance/consultations-one-205
 // http://localhost:3000/famille/naissance/consultations-one-205/

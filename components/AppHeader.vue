@@ -46,46 +46,6 @@ watch(items, (newPost) => {
               {{ item.slug }}
             </NuxtLink>
           </li>
-          <!--     <li>
-               <NuxtLink :to="{name:'article', params:{articleId:5}}">Article 4</NuxtLink>
-             </li>
-             <li>
-               <NuxtLink :to="{name:'category', params:{site:'culture',slug:'x'}}">Category x</NuxtLink>
-             </li>
-
-               <li>
-               <NuxtLink :to="{name: 'site-slugArticle', params:{
-                 site:'iki',
-                   slugArticle: 'zeze' }}">
-                 dfdf
-               </NuxtLink>
-             </li>
-               <li>
-                 <NuxtLink
-                     :to="{ name: 'site-categories-slugCategory', params: {
-                     site:'citoyen',
-                     categories:['environnement','lili'],
-                   slugCategory: 'hello' }}">
-                   Citoyen/environnement
-                 </NuxtLink>
-               <              <NuxtLink
-                       :to="{ name: 'site-slugCategory', params: { site:'culture',slugCategory: ['musees'] }}">
-                     Culture/Musees
-                   </NuxtLink>
-               </li>
-               <li>
-                    <NuxtLink :to="{ name: 'site-slugArticle', params: { site:'culture',slugArticle: 'musees' }}">
-                      Culture/Musees/Fam
-                    </NuxtLink>
-               </li>
-               <li>
-                 <NuxtLink :to="`/${type}/${item.id}`">
-                   Article 5
-                 </NuxtLink>
-               </li>
-               <li>
-                 <NuxtLink to="/parent/child">Child</NuxtLink>
-               </li>-->
         </ul>
       </nav>
     </div>

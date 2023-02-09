@@ -4,12 +4,12 @@ export default <RouterConfig>{
     routes: (_routes) => [
         {
             name: 'article',
-            path: '/:siteSlug(administration|culture|economie|enfance-jeunesse|sante|social|sport|tourisme)/:categories([a-z-_]+)+\/:articleSlug([a-z-]+-):articleId(\\d+)',
+            path: '/:siteSlug(administration|culture|economie|enfance-jeunesse|sante|social|sport|tourisme)/:categories([a-z-_]+)+\/:articleSlug([a-z0-9-_]+-):articleId(\\d+)',
             component: () => import('~/pages/article.vue')
         },
         {
             name: 'category',
-            path: '/:siteSlug(administration|culture|economie|enfance-jeunesse|sante|social|sport|tourisme)/:categories([a-z-_]+)+\/:categorySlug(\\w+)',
+            path: '/:siteSlug(administration|culture|economie|enfance-jeunesse|sante|social|sport|tourisme)/:categories([a-zA-Z0-9-_]+)*\/:categorySlug([a-zA-Z0-9-_]+)',
             component: () => import('~/pages/category.vue')
         },
         {

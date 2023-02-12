@@ -26,7 +26,7 @@ useHead({
     <div v-if="pending2">
       Loading Article...
     </div>
-    <div v-if="error">
+    <div v-if="error" class="text-red-600">
       Error {{ error }}
     </div>
     <div v-if="article">

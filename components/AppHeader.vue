@@ -33,7 +33,7 @@ watch(items, (newPost) => {
             </NuxtLink>
           </li>
           <li v-for="item in items" :key="item.blogid">
-            <NuxtLink :to="{name: 'siteIndex', params:{siteSlug:item.slug}}" class="
+            <NuxtLink :key="item.ID" :to="{name: 'siteIndex', params:{siteSlug:item.slug}}" class="
           font-bold pb-2 capitalize
           bg-gradient-to-r from-pink-500 to-purple-500
           bg-[length:0px_3px]

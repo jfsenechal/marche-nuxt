@@ -2,8 +2,6 @@
 const route = useRoute()
 const siteSlug = computed(() => String(route.params.siteSlug || 'citoyen'))
 const {pending, data: item, error} = useLazyFetch(`https://www.marche.be/api/menu.php?site=${siteSlug.value}`)
-const parents = computed((item) => [])
-
 </script>
 <template>
   <section>
@@ -34,7 +32,7 @@ const parents = computed((item) => [])
                       siteSlug:siteSlug,
                       categories:child.parents,
                       articleSlug: child.slug + '-' ?? 'slugNotFound',
-                      articleId: child.ID ?? 'IdNotFound' }
+                      articleId: child.object_id ?? 'IdNotFound' }
           }" v-if="child.object === 'post' || child.object === 'page'">
             {{ child.object }}: {{ child.title }}
           </NuxtLink>

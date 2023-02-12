@@ -4,17 +4,17 @@ export default <RouterConfig>{
     routes: (_routes) => [
         {
             name: 'article',
-            path: '/:siteSlug(administration|culture|economie|enfance-jeunesse|sante|social|sport|tourisme)/:categories([a-z-_]+)*\/:articleSlug([a-z0-9-_]+-):articleId(\\d+)',
+            path: '/:siteSlug(administration|culture|economie|enfance|enfance-jeunesse|sante|social|sport|tourisme)/:categories([a-z-_]+)*\/:articleSlug([a-z0-9-_]+-):articleId(\\d+)',
             component: () => import('~/pages/article.vue')
         },
         {
             name: 'category',
-            path: '/:siteSlug(administration|culture|economie|enfance-jeunesse|sante|social|sport|tourisme)/:categories([a-zA-Z0-9-_]+)*\/:categorySlug([a-zA-Z0-9-_]+)',
+            path: '/:siteSlug(administration|culture|economie|enfance|enfance-jeunesse|sante|social|sport|tourisme)/:categories([a-zA-Z0-9-_]+)*\/:categorySlug([a-zA-Z0-9-_]+)',
             component: () => import('~/pages/category.vue')
         },
         {
             name: 'siteIndex',
-            path: '/:siteSlug(administration|culture|economie|enfance-jeunesse|sante|social|sport|tourisme)',
+            path: '/:siteSlug(administration|culture|economie|enfance|enfance-jeunesse|sante|social|sport|tourisme)',
             component: () => import('~/pages/site.vue')
         },
         {

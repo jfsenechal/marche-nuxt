@@ -1,9 +1,9 @@
 <script setup>
-useHead({
+/*useHead({
     titleTemplate: (titleChunk) => {
       return titleChunk ? `${titleChunk} - MarcheBe` : 'Site Title';
     }
-  })
+  })*/
 </script>
 <template>
     <NuxtLayout>

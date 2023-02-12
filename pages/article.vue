@@ -5,6 +5,14 @@ const articleId = computed(() => Number(params.articleId || 0))
 const articleSlug = computed(() => String(params.articleSlug || 'no article slug'))
 const categories = computed(() => String(params.categories || 'no cats'))
 
+import Titre from "@/components/Article/Titre.vue";
+import Share from "@/components/Article/Share.vue";
+import Image from "@/components/Article/Image.vue";
+import SeeAlso from "@/components/Article/SeeAlso.vue";
+import Tags from "@/components/Article/Tags.vue";
+import Body from "@/components/Article/Body.vue";
+import Footer from "@/components/Footer/Footer.vue";
+
 const {
   pending,
   data: article,
@@ -18,7 +26,8 @@ useServerSeoMeta({
 })
 </script>
 <template>
-  <section>
+  <article
+      class="container grid grid-cols-1 xl:grid-cols-3 items-start mt-24 xl:mt-28 mx-auto px-4">
     <div v-if="pending">
       Loading Article...
     </div>
@@ -26,27 +35,15 @@ useServerSeoMeta({
       Error {{ error }}
     </div>
     <div v-if="article">
-      <div class="card card-compact w-96 bg-base-100 shadow-xl">
-        <figure>
-          <img :src="article.image" alt="Shoes"/>
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">{{ article.post_title ?? 'bug post title' }}</h2>
-          <div v-html="article.post_content ?? 'no content'"></div>
-        </div>
-      </div>
+      <Titre :name="article.post_title"/>
+      <Image/>
+      <Tags/>
+      <Body/>
+      <Share/>
+      <SeeAlso/>
     </div>
     <div v-else>
       <h3 class="text-2xl font-bold">Article not found</h3>
     </div>
-    <a class="mt-3 block" href="https://www.marche.be/api/post.php?id={{articleId}}&site={{siteSlug}}">
-      https://www.marche.be/api/post.php?id={{ articleId }}&site={{ siteSlug }}
-    </a>
-    <ul class="mt-3 border border-administration">
-      <li class="p-3">site slug: {{ siteSlug }}</li>
-      <li class="p-3">article slug: {{ articleSlug }}</li>
-      <li class="p-3">article id: {{ articleId }}</li>
-    </ul>
-
-  </section>
+  </article>
 </template>

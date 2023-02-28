@@ -10,7 +10,7 @@ const {
   pending,
   data: category,
   error
-} = useLazyFetch(`https://www.marche.be/api/category.php?site=${siteSlug.value}&slug=${categorySlug.value}`)
+} = useLazyFetch(`https://www.marche.be/nuxt/category.php?site=${siteSlug.value}&slug=${categorySlug.value}`)
 
 </script>
 <template>

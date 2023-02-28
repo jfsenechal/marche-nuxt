@@ -18,7 +18,7 @@ const {
     <div v-if="error" class="text-red-600">
       Error {{ error }}
     </div>
-    <div v-if="articles">
+    <template v-if="articles">
       <ul class="pt-2 xl:pt-6 grid grid-cols-1 gap-1 xl:gap-2 xl:grid-cols-2 my-2">
         <li
             v-for="item in articles"
@@ -41,6 +41,6 @@ const {
           </NuxtLink>
         </li>
       </ul>
-    </div>
+    </template>
   </section>
 </template>

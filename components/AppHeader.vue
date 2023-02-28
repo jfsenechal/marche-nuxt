@@ -6,7 +6,7 @@ const router = useRouter();
 //console.log(router.currentRoute)
 const route = useRoute()
 //console.log(route.params)
-const {pending, data: items, error} = useLazyFetch(`https://www.marche.be/api/menu.php`)
+const {pending, data: items, error} = useLazyFetch(`https://www.marche.be/nuxt/menu.php`)
 watch(items, (newPost) => {
 })
 </script>

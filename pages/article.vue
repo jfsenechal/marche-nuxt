@@ -1,17 +1,16 @@
 <script setup lang="ts">
-const {path, params} = useRoute()
-const siteSlug = computed(() => String(params.siteSlug || 'citoyen'))
-const articleId = computed(() => Number(params.articleId || 0))
-const articleSlug = computed(() => String(params.articleSlug || 'no article slug'))
-const categories = computed(() => String(params.categories || 'no cats'))
-
 import Titre from "@/components/Article/Titre.vue";
 import Share from "@/components/Article/Share.vue";
 import Image from "@/components/Article/Image.vue";
 import SeeAlso from "@/components/Article/SeeAlso.vue";
 import Tags from "@/components/Article/Tags.vue";
 import Body from "@/components/Article/Body.vue";
-import Footer from "@/components/Footer/Footer.vue";
+
+const {path, params} = useRoute()
+const siteSlug = computed(() => String(params.siteSlug || 'citoyen'))
+const articleId = computed(() => Number(params.articleId || 0))
+const articleSlug = computed(() => String(params.articleSlug || 'no article slug'))
+const categories = computed(() => String(params.categories || 'no cats'))
 
 const {
   pending,

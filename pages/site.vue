@@ -1,13 +1,13 @@
 <script setup>
 const route = useRoute()
 const siteSlug = computed(() => String(route.params.siteSlug || 'citoyen'))
-const {pending, data: item, error} = useLazyFetch(`https://www.marche.be/api/menu.php?site=${siteSlug.value}`)
+const {pending, data: item, error} = useLazyFetch(`https://www.marche.be/nuxt/menu.php?site=${siteSlug.value}`)
 </script>
 <template>
   <section>
     <h3 class="text-2xl font-bold">Index du site {{ siteSlug }}</h3>
     <p>
-      <a :href='`https://www.marche.be/api/menu.php?site=${siteSlug}`'>
+      <a :href='`https://www.marche.be/nuxt/menu.php?site=${siteSlug}`'>
         https://www.marche.be/api/menu.php?site={{ siteSlug }}
       </a>
     </p>

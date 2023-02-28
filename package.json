@@ -8,11 +8,16 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.3.1",
+    "@heroicons/vue": "^2.0.16",
+    "@nuxtjs/tailwindcss": "^6.4.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
-    "nuxt": "^3.2.0"
+    "@vueuse/core": "^9.13.0",
+    "nuxt": "^3.2.3"
+  },
+  "dependencies": {
+    "daisyui": "^2.50.0"
   }
 }

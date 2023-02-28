@@ -21,7 +21,7 @@ watch(query, async (newQuestion, oldQuestion) => {
 });
 
 function search(s) {
-  fetch("https://www.marche.be/api/search.php?s=" + s)
+  fetch("https://www.marche.be/nuxt/search.php?s=" + s)
     .then(function(response) {
       // The API call was successful!
       return response.json();

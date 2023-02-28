@@ -6,7 +6,7 @@ import NavigationBackMenuMobile from "@/components/Header/Mobile/NavigationBackM
 const mainItems = ref([]);
 
 function getItems() {
-  fetch("https://www.marche.be/api/menu.php")
+  fetch("https://www.marche.be/nuxt/menu.php")
     .then(function(response) {
       // The API call was successful!
       return response.json();

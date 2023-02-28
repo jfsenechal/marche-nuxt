@@ -21,28 +21,28 @@ watch(article, (newPost) => {
   console.log(article.value)
 })
 useServerSeoMeta({
-  title: () => `${article.value?.post_title} - My Site`,
+  //title: () => `${article.value?.post_title} - My Site`,
 })
 </script>
 <template>
   <article
       class="container grid grid-cols-1 xl:grid-cols-3 items-start mt-24 xl:mt-28 mx-auto px-4">
-    <div v-if="pending">
+    <template v-if="pending">
       Loading Article...
-    </div>
-    <div v-if="error" class="text-red-600">
+    </template>
+    <template v-if="error" class="text-red-600">
       Error {{ error }}
-    </div>
-    <div v-if="article">
+    </template>
+    <template v-if="article">
       <Titre :name="article.post_title"/>
       <Image/>
       <Tags/>
       <Body/>
       <Share/>
       <SeeAlso/>
-    </div>
-    <div v-else>
+    </template>
+    <template v-else>
       <h3 class="text-2xl font-bold">Article not found</h3>
-    </div>
+    </template>
   </article>
 </template>

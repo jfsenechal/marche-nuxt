@@ -3,11 +3,13 @@ const propos = defineProps({categoryId: Number})
 const categoryId = propos.categoryId
 const {path, params} = useRoute()
 const siteSlug = computed(() => String(params.siteSlug || 'citoyen'))
+const categorySelected = ref(0)
 const {
   pending,
   data: children,
   error
 } = useLazyFetch(`https://www.marche.be/nuxt/categories.php?site=${siteSlug.value}&id=${categoryId}`)
+
 </script>
 <template>
   <section>
@@ -17,7 +19,7 @@ const {
     <div v-if="error" class="text-red-600">
       Error {{ error }}
     </div>
-    <div v-if="children">
+    <template v-if="children">
       <select name="category"
               class="xl:hidden flex border border-cta-dark p-2 mt-3 font-montserrat-semi-bold bg-white mx-auto">
         <option v-for="item in children" :key="item.cat_ID" :value="item.cat_ID">
@@ -31,16 +33,13 @@ const {
             :key="item.cat_ID"
             class="border border-cta-dark p-3 font-montserrat-light rounded hover:bg-cta-dark hover:text-white">
           <NuxtLink :to="{
-                  name: 'category',
-                  params:{
-                      siteSlug:siteSlug,
-                      categories:item.parents,
-                      categorySlug: item.slug ?? 'slugfound' }
+                  name: 'citoyen-category-children',
+                  params:{categorySelected:item.cat_ID}
           }">
             {{ item.name }}
           </NuxtLink>
         </li>
       </ul>
-    </div>
+    </template>
   </section>
 </template>

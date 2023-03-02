@@ -1,6 +1,5 @@
 <script setup>
 import Children from "@/components/Category/Children.vue";
-import Posts from "@/components/Category/Posts.vue";
 
 const route = useRoute()
 const siteSlug = computed(() => String(route.params.siteSlug || 'citoyen'))
@@ -14,7 +13,7 @@ const {
 
 </script>
 <template>
-  <main class="container px-4 mt-24 xl:mt-28 mx-auto mb-8">
+  <main class="container px-4 mt-0 xl:mt-0 mx-auto mb-8">
     <div class="flex items-center mb-2">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
            class="text-cta-light w-6 h-6">
@@ -35,7 +34,10 @@ const {
       </h2>
 
       <Children :categoryId="category.cat_ID"/>
-      <Posts :categoryId="category.cat_ID"/>
+      <!--
+        <Posts :categoryId="category.cat_ID"/> -->
+
+      <NuxtPage/>
     </div>
   </main>
 </template>

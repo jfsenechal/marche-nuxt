@@ -1,14 +1,16 @@
 <script setup>
-const propos = defineProps({categoryId: Number})
-const categoryId = propos.categoryId
-const {path, params} = useRoute()
-const siteSlug = computed(() => String(params.siteSlug || 'citoyen'))
-
+const propos = defineProps({
+  categorySelected: {type: String},
+  siteSlug: {type: String}
+})
+const categorySelected = propos.categorySelected ?? 0
+const siteSlug = computed(() => String(propos.siteSlug || 'citoyen'))
+console.log(categorySelected)
 const {
   pending,
   data: articles,
   error
-} = useLazyFetch(`https://www.marche.be/nuxt/posts.php?site=${siteSlug.value}&id=${categoryId}`)
+} = useLazyFetch(`https://www.marche.be/nuxt/posts.php?site=${siteSlug.value}&id=${categorySelected}`)
 </script>
 <template>
   <section>
@@ -23,7 +25,7 @@ const {
         <li
             v-for="item in articles"
             :key="item.ID"
-            class="rounded-lg p-2 xl:p-4">
+            class="rounded-lg p-2 xl:p-2">
           <NuxtLink
               class="flex flex-col justify-between items-start border border-grey-light shadow-md p-4 block min-h-[6rem]"
               :to="{

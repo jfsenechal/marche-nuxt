@@ -29,7 +29,7 @@ export default <RouterConfig>{
             children: [
                 {
                     name: 'citoyen-category-children',
-                    path: 'profile/:categorySelected(\\d+)',
+                    path: 'select/:categorySelected([a-zA-Z0-9-_]+)',
                     component: () => import('~/components/Category/Posts.vue'),
                     props: route=>({
                         siteSlug:route.params.siteSlug,

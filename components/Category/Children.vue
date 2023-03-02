@@ -34,7 +34,7 @@ const {
             class="border border-cta-dark p-3 font-montserrat-light rounded hover:bg-cta-dark hover:text-white">
           <NuxtLink :to="{
                   name: 'citoyen-category-children',
-                  params:{categorySelected:item.cat_ID}
+                  params:{categorySelected:item.slug}
           }">
             {{ item.name }}
           </NuxtLink>

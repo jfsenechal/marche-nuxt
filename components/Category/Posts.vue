@@ -3,9 +3,8 @@ const propos = defineProps({
   categorySelected: {type: String},
   siteSlug: {type: String}
 })
-const categorySelected = propos.categorySelected ?? 0
+const categorySelected = propos.categorySelected ?? null
 const siteSlug = computed(() => String(propos.siteSlug || 'citoyen'))
-console.log(categorySelected)
 const {
   pending,
   data: articles,

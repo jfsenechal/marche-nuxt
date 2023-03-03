@@ -1,4 +1,5 @@
 <script setup>
+const emit = defineEmits(['updateCategorySelected'])
 const propos = defineProps({categoryId: Number})
 const categoryId = propos.categoryId
 const {path, params} = useRoute()
@@ -31,13 +32,9 @@ const {
         <li
             v-for="item in children"
             :key="item.cat_ID"
+            @click="$emit('updateCategorySelected',item.slug)"
             class="border border-cta-dark p-3 font-montserrat-light rounded hover:bg-cta-dark hover:text-white">
-          <NuxtLink :to="{
-                  name: 'citoyen-category-children',
-                  params:{categorySelected:item.slug}
-          }">
             {{ item.name }}
-          </NuxtLink>
         </li>
       </ul>
     </template>

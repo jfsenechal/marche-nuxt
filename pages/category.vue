@@ -1,15 +1,22 @@
 <script setup>
 import Children from "@/components/Category/Children.vue";
+import Posts from "@/components/Category/Posts.vue";
 
 const route = useRoute()
 const siteSlug = computed(() => String(route.params.siteSlug || 'citoyen'))
 const categories = computed(() => String(route.params.categories || 'Pas de categories parent'))
 const categorySlug = computed(() => String(route.params.categorySlug || '/'))
+const categorySelected = ref(categorySlug.value)
 const {
   pending,
   data: category,
   error
 } = useLazyFetch(`https://www.marche.be/nuxt/category.php?site=${siteSlug.value}&slug=${categorySlug.value}`)
+
+function update(categorySelectedSlug) {
+  console.log("update: " + categorySelectedSlug)
+  categorySelected.value = categorySelectedSlug
+}
 
 </script>
 <template>
@@ -33,11 +40,10 @@ const {
         {{ category.name }}
       </h2>
 
-      <Children :categoryId="category.cat_ID"/>
-      <!--
-        <Posts :categoryId="category.cat_ID"/> -->
+      <Children :categoryId="category.cat_ID" @update-category-selected="update"/>
 
-      <NuxtPage/>
+      <Posts :key="categorySelected" :category-selected="categorySelected" :site-slug="siteSlug"/>
+
     </div>
   </main>
 </template>

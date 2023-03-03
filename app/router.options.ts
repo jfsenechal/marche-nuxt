@@ -33,7 +33,7 @@ export default <RouterConfig>{
                     component: () => import('~/components/Category/Posts.vue'),
                     props: route=>({
                         siteSlug:route.params.siteSlug,
-                        categorySelected: route.params.categorySelected
+                        categorySelected: route.params.categorySelected //?? route.params.categorySlug
                     })
                 }
             ]

@@ -1,15 +1,20 @@
 <script setup>
+console.log('coucou')
 const propos = defineProps({
-  categorySelected: {type: String},
-  siteSlug: {type: String}
+  categorySelected: {type: String, required: true},
+  siteSlug: {type: String, required: true}
 })
-const categorySelected = propos.categorySelected ?? null
+const categorySelected = propos.categorySelected
 const siteSlug = computed(() => String(propos.siteSlug || 'citoyen'))
 const {
   pending,
   data: articles,
   error
 } = useLazyFetch(`https://www.marche.be/nuxt/posts.php?site=${siteSlug.value}&id=${categorySelected}`)
+console.log("post: " + categorySelected)
+const categorySlug = computed(() => String(propos.categorySelected || ''))
+console.log("post slug: " + categorySlug.value)
+
 </script>
 <template>
   <section>

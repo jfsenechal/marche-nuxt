@@ -27,14 +27,21 @@ const {
           {{ item.name }}
         </option>
       </select>
-
       <ul class="hidden xl:flex pt-6 flex-1 flex-wrap gap-2 w-1/2 my-2">
         <li
             v-for="item in children"
             :key="item.cat_ID"
-            @click="$emit('updateCategorySelected',item.slug)"
+            @click.prevent="$emit('updateCategorySelected',item.slug)"
             class="border border-cta-dark p-3 font-montserrat-light rounded hover:bg-cta-dark hover:text-white">
             {{ item.name }}
+        <!--  <NuxtLink :to="{
+                  name: 'category',
+                  params:{
+                      siteSlug:siteSlug,
+                      categories:item.parents,
+                      categorySlug: item.slug ?? 'slug not found' }}">
+              {{ item.name }}
+            </NuxtLink>-->
         </li>
       </ul>
     </template>

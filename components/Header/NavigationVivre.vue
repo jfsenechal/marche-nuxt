@@ -1,28 +1,10 @@
 <script setup>
-import { onMounted, ref } from "vue";
 import NavigationVivreTitleMobile from "@/components/Header/Mobile/NavigationVivreTitleMobile.vue";
 import NavigationBackMenuMobile from "@/components/Header/Mobile/NavigationBackMenuMobile.vue";
 
-const mainItems = ref([]);
-
-function getItems() {
-  fetch("https://www.marche.be/nuxt/menu.php")
-    .then(function(response) {
-      // The API call was successful!
-      return response.json();
-    })
-    .then(function(data) {
-      // This is the JSON from our response
-      mainItems.value = data;
-    })
-    .catch(function(err) {
-      // There was an error
-      console.warn("Something went wrong.", err);
-    });
-}
-
+const {pending, data: mainItems, error} = useLazyFetch(`https://www.marche.be/nuxt/menu.php`)
 /**
- * Ouvre et ferme le sous menu d'un onglet de vivre
+ * Ouvre et ferme-le sous menu d'un onglet de vivre
  * @param blogid
  * @param action
  */
@@ -49,12 +31,7 @@ function toggleMenu(action) {
     menu.style.top = 0;
   }
 }
-
-onMounted(() => {
-  getItems();
-});
 </script>
-
 <template>
   <nav
     class="xl:hidden fixed bg-cta-dark top-full bottom-0 left-0 right-0 h-full xl:h-auto xl:top-20 xl:bottom-auto xl:pb-4 w-full transition-all duration-500"

@@ -25,30 +25,30 @@ function openMenuVivre() {
 }
 </script>
 <template>
-  <nav class="h-20 musshadow fixed bottom-0 top-auto right-0 left-0 xl:static xl:shadow-none">
+  <nav class="h-20 musshadow fixed bottom-0 top-auto right-0 left-0 xl:static">
     <ul class="h-20 grid grid-cols-5 items-center justify-evenly bg-cta-dark text-white xl:flex xl:bg-white xl:text-cta-dark"
         id="navigationTop">
-      <NavIconHomeMobile />
-      <NavIconSearchMobile />
+      <NavIconHomeMobile/>
+      <NavIconSearchMobile/>
       <li
-        class="nav-top xl:font-montserrat-semi-bold xl:transition-all xl:duration-500 btn-vivre xl:py-12 ">
+          class="nav-top xl:font-montserrat-semi-bold xl:transition-all xl:duration-500 btn-vivre xl:py-12 ">
         <a href="#" class="hidden xl:flex">
-          <IconMenuVivreSvg />
+          <IconMenuVivreSvg/>
           Vivre à Marche
         </a>
-        <label for="checkboxMenu" class="xl:hidden icon-menu-mobile cursor-pointer">
+        <label for="checkboxMenu" class="flex xl:hidden icon-menu-mobile cursor-pointer">
           <button name="menu" @click="openMenuVivre">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                  stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
             </svg>
           </button>
-          <span class="text-menu-mobile">Menu</span>
+          <span class="text-menu-mobile">Menu2</span>
         </label>
-        <NavigationVivre />
+        <NavigationVivre/>
       </li>
-      <NavIconCommuneShortCutMobile />
-      <NavItemsXl @open-search="openSearch" />
+      <NavIconCommuneShortCutMobile/>
+      <NavItemsXl @open-search="openSearch"/>
     </ul>
   </nav>
 </template>
@@ -68,7 +68,7 @@ li.nav-top:hover {
 }
 
 .icon-menu-mobile {
-  @apply my-4 flex flex-col flex-wrap items-center justify-center font-montserrat-semi-bold;
+  @apply my-4 flex-col flex-wrap items-center justify-center font-montserrat-semi-bold;
 }
 
 .text-menu-mobile {
@@ -77,5 +77,7 @@ li.nav-top:hover {
 
 .musshadow {
   box-shadow: 0 -0.125rem 0.45rem rgba(0, 0, 0, 0.75);
+  @apply lg:shadow-none
 }
+
 </style>

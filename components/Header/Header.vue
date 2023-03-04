@@ -17,7 +17,7 @@ function closeSearch() {
     id="headerTop"
   >
     <a href="/" class="mr-auto">
-      <img src="images/img_logo.png" alt="logo" class="h-10 w-16 xl:h-14 xl:w-24" />
+      <img src="/images/img_logo.png" alt="logo" class="h-10 w-16 xl:h-14 xl:w-24" />
     </a>
     <Navigation @close-search=closeSearch @open-search="updateOpenSearch" />
     <IconesSocial />

@@ -8,7 +8,7 @@
 <template>
   <div id="app">
     <AppHeader/>
-    <main class="m-10">
+    <main class="container px-4 mt-24 xl:mt-28 mx-auto mb-8">
       <slot/>
     </main>
     <AppFooter/>

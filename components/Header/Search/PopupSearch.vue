@@ -1,6 +1,5 @@
 <script setup>
 //https://tailwindui.com/components/application-ui/navigation/command-palettes
-import { ref, watch } from "vue";
 import { onClickOutside } from "@vueuse/core";
 const emit = defineEmits(["open-search", "close-search"]);
 const target = ref(null);

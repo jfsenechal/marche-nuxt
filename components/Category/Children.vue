@@ -1,10 +1,8 @@
 <script setup>
-const emit = defineEmits(['updateCategorySelected'])
 const propos = defineProps({categoryId: Number})
 const categoryId = propos.categoryId
 const {path, params} = useRoute()
 const siteSlug = computed(() => String(params.siteSlug || 'citoyen'))
-const categorySelected = ref(0)
 const {
   pending,
   data: children,

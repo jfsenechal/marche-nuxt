@@ -6,24 +6,19 @@ const route = useRoute()
 const siteSlug = computed(() => String(route.params.siteSlug || 'citoyen'))
 const categories = computed(() => String(route.params.categories || 'Pas de categories parent'))
 const categorySlug = computed(() => String(route.params.categorySlug || '/'))
-const backName = ref('')
 const categorySelected = ref(categorySlug.value)
 const {
   pending,
   data: category,
   error
 } = useLazyFetch(`https://www.marche.be/nuxt/category.php?site=${siteSlug.value}&slug=${categorySlug.value}`)
-
 function update(categorySelectedSlug) {
   console.log("update: " + categorySelectedSlug)
   categorySelected.value = categorySelectedSlug
 }
-
-const publishedBooksMessage = computed(() => {
-  console.log("cc " + category.jf)
-  return backName.value = category.jf != null ? category.jf.name : 'accueil'
+const backName = computed(() => {
+  return typeof category.value.jf == 'object' ? category.value.jf.name : 'accueil'
 })
-
 </script>
 <template>
   <section>
@@ -40,14 +35,12 @@ const publishedBooksMessage = computed(() => {
           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
         </svg>
         <a href="/" class="ml-2 font-montserrat-semi-bold text-cta-light">
-          Retour à {{ publishedBooksMessage }}</a>
+          Retour à {{ backName }}</a>
       </div>
       <h2 class="font-montserrat-semi-bold text-base xl:text-xl leading-7 text-cta-dark">
         {{ category.name }}
       </h2>
-
       <Children :categoryId="category.cat_ID" @update-category-selected="update"/>
-
       <Posts :key="categorySelected" :category-selected="categorySelected" :site-slug="siteSlug"/>
 
     </div>

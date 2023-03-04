@@ -66,9 +66,9 @@ function toggleMenu(action) {
               :key="child.ID"
               class="text-cta-dark font-montserrat-regular"
               :class="item.colorhover">
-              <a :href="child.url">
+              <AppLink :item="child" :site-slug="item.slug">
                 {{ child.title }}
-              </a>
+              </AppLink>
             </li>
           </ul>
         </div>

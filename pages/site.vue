@@ -1,4 +1,5 @@
 <script setup>
+import AppLink from "~/components/AppLink.vue";
 const route = useRoute()
 const siteSlug = computed(() => String(route.params.siteSlug || 'citoyen'))
 const {pending, data: item, error} = useLazyFetch(`https://www.marche.be/nuxt/menu.php?site=${siteSlug.value}`)
@@ -17,28 +18,9 @@ const {pending, data: item, error} = useLazyFetch(`https://www.marche.be/nuxt/me
     <div v-else>
       <ul class="flex flex-col gap-2">
         <li v-for="child in item.items" :key="child.ID" class="p-1">
-          <NuxtLink :to="{
-                  name: 'category',
-                  params:{
-                      siteSlug:siteSlug,
-                      categories:child.parents,
-                      categorySlug: child.slug ?? 'slugfound' }
-          }" v-if="child.object === 'category' ">
-            {{ child.object }}: {{ child.title }}
-          </NuxtLink>
-          <NuxtLink :to="{
-                   name: 'article',
-                   params:{
-                      siteSlug:siteSlug,
-                      categories:child.parents,
-                      articleSlug: child.slug + '-' ?? 'slugNotFound',
-                      articleId: child.object_id ?? 'IdNotFound' }
-          }" v-if="child.object === 'post' || child.object === 'page'">
-            {{ child.object }}: {{ child.title }}
-          </NuxtLink>
-          <p v-if="child.object !== 'post' && child.object !== 'page' && child.object !== 'category' ">
-            <NuxtLink :to="child.guid">{{ child.object }}: {{ child.title }}</NuxtLink>
-          </p>
+         <AppLink :item="child" :site-slug="siteSlug">
+           {{ child.title }}
+         </AppLink>
         </li>
       </ul>
     </div>

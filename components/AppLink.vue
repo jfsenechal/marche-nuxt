@@ -1,9 +1,35 @@
 <script setup>
-const route = useRoute()
-//const propos = ...RouterLink.propos
-const isExternal = computed(() => typeof route.to === String && route.to.startsWith('http'))
+const propos = defineProps({
+  item: {
+    type: Object, required: true
+  },
+  siteSlug: {
+    type: String, required: true
+  }
+})
+const item = propos.item
 </script>
 <template>
-  <a v-if="isExternal" :href="route.to" target="_blank" rel="noopener"><slot/></a>
-  <router-link v-else v-bind="$props"><slot/></router-link>
+  <NuxtLink :to="{
+                  name: 'category',
+                  params:{
+                      siteSlug:siteSlug,
+                      categories:item.parents,
+                      categorySlug: item.slug ?? 'slugfound' }
+          }" v-if="item.object === 'category' ">
+    <slot/>
+  </NuxtLink>
+  <NuxtLink :to="{
+                   name: 'article',
+                   params:{
+                      siteSlug:siteSlug,
+                      categories:item.parents,
+                      articleSlug: item.slug + '-' ?? 'slugNotFound',
+                      articleId: item.object_id ?? 'IdNotFound' }
+          }" v-if="item.object === 'post' || item.object === 'page'">
+    <slot/>
+  </NuxtLink>
+  <NuxtLink :to="item.guid" v-if="item.object !== 'post' && item.object !== 'page' && item.object !== 'category' ">
+    <slot/>
+  </NuxtLink>
 </template>

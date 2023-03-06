@@ -7,15 +7,18 @@ const siteSlug = computed(() => String(route.params.siteSlug || 'citoyen'))
 const categories = computed(() => String(route.params.categories || 'Pas de categories parent'))
 const categorySlug = computed(() => String(route.params.categorySlug || '/'))
 const categorySelected = ref(categorySlug.value)
+
 const {
   pending,
   data: category,
   error
 } = useLazyFetch(`https://www.marche.be/nuxt/category.php?site=${siteSlug.value}&slug=${categorySlug.value}`)
+
 function update(categorySelectedSlug) {
   console.log("update: " + categorySelectedSlug)
   categorySelected.value = categorySelectedSlug
 }
+
 const backName = computed(() => {
   return typeof category.value.jf == 'object' ? category.value.jf.name : 'accueil'
 })

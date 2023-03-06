@@ -2,6 +2,7 @@
 import Children from "@/components/Category/Children.vue";
 import Posts from "@/components/Category/Posts.vue";
 import categoryGet from "~/composables/categoryGet";
+import Loader from "@/components/Widget/Loader.vue";
 
 const route = useRoute()
 const siteSlug = computed(() => String(route.params.siteSlug || 'citoyen'))
@@ -27,7 +28,7 @@ function updateCategorySelected(categorySelectedSlug) {
 <template>
   <section>
     <div v-if="pendingCategory">
-      Loading Category...
+      <Loader>Loading Category...</Loader>
     </div>
     <div v-if="errorCategory" class="text-red-600">
       Error {{ errorCategory }}

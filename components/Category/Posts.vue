@@ -1,5 +1,6 @@
 <script setup>
 import articleGet from "~/composables/articleGet";
+import Loader from "@/components/Widget/Loader.vue";
 
 const propos = defineProps({
   categorySelected: {type: String, required: true},
@@ -19,8 +20,11 @@ const {
 <template>
   <section>
     <div v-if="pendingArticles">
-      Loading Articles...
+      <Loader>Loading Articles...</Loader>
     </div>
+    <template v-else-if="!articles.length">
+      <p class="text-2xl text-red-400 pt-2 xl:pt-6 ">Aucun article trouvé :-(</p>
+    </template>
     <div v-if="errorArticles" class="text-red-600">
       Error {{ errorArticles }}
     </div>

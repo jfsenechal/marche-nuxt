@@ -1,23 +1,23 @@
 <script setup>
+import articleGet from "~/composables/articleGet";
+
 const propos = defineProps({
   categorySelected: {type: String, required: true},
   siteSlug: {type: String, required: true}
 })
+
 const categorySelected = propos.categorySelected
 const siteSlug = computed(() => String(propos.siteSlug || 'citoyen'))
-const {
-  pending,
-  data: articles,
-  error
-} = useLazyFetch(`https://www.marche.be/nuxt/posts.php?site=${siteSlug.value}&id=${categorySelected}`)
+
+const {pendingArticles, articles, errorArticles} = articleGet(siteSlug.value, categorySelected);
 </script>
 <template>
   <section>
-    <div v-if="pending">
+    <div v-if="pendingArticles">
       Loading Articles...
     </div>
-    <div v-if="error" class="text-red-600">
-      Error {{ error }}
+    <div v-if="errorArticles" class="text-red-600">
+      Error {{ errorArticles }}
     </div>
     <template v-if="articles">
       <ul class="pt-2 xl:pt-6 grid grid-cols-1 gap-1 xl:gap-2 xl:grid-cols-2 my-2">

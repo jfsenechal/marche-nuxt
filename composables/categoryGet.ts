@@ -5,6 +5,8 @@ export default (siteSlug: String, categorySlug: String) => {
         error: errorCategory
     } = useLazyFetch(`https://www.marche.be/nuxt/category.php?site=${siteSlug}&slug=${categorySlug}`)
     return {
-        pendingCategory, category, errorCategory
+        pendingCategory,
+        category,
+        errorCategory
     };
 }

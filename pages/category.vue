@@ -1,6 +1,7 @@
 <script setup>
 import Children from "@/components/Category/Children.vue";
 import Posts from "@/components/Category/Posts.vue";
+import categoryGet from "~/composables/categoryGet";
 
 const route = useRoute()
 const siteSlug = computed(() => String(route.params.siteSlug || 'citoyen'))
@@ -10,18 +11,18 @@ const categorySelected = ref(categorySlug.value)
 
 const {
   pendingCategory,
-  data: category,
+  category,
   errorCategory
-} = useLazyFetch(`https://www.marche.be/nuxt/category.php?site=${siteSlug.value}&slug=${categorySlug.value}`)
-
-function update(categorySelectedSlug) {
-  console.log("update: " + categorySelectedSlug)
-  categorySelected.value = categorySelectedSlug
-}
+} = categoryGet(siteSlug.value, categorySlug.value)
 
 const backName = computed(() => {
   return typeof category.value.jf == 'object' ? category.value.jf.name : 'accueil'
 })
+
+function updateCategorySelected(categorySelectedSlug) {
+  console.log("update: " + categorySelectedSlug)
+  categorySelected.value = categorySelectedSlug
+}
 </script>
 <template>
   <section>
@@ -43,7 +44,7 @@ const backName = computed(() => {
       <h2 class="font-montserrat-semi-bold text-base xl:text-xl leading-7 text-cta-dark">
         {{ category.name }}
       </h2>
-      <Children :categoryId="category.cat_ID" @update-category-selected="update"/>
+      <Children :categoryId="category.cat_ID" @update-category-selected="updateCategorySelected"/>
       <Posts :key="categorySelected" :category-selected="categorySelected" :site-slug="siteSlug"/>
 
     </div>

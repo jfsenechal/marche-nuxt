@@ -10,6 +10,12 @@ const categorySelected = propos.categorySelected
 const siteSlug = computed(() => String(propos.siteSlug || 'citoyen'))
 
 const {pendingArticles, articles, errorArticles} = articleGet(siteSlug.value, categorySelected);
+watch(articles, (newarticles) => {
+  // Because posts starts out null, you won't have access
+  // to its contents immediately, but you can watch it.
+  //console.log('newUser', newUser);
+  articles.value = articles;
+})
 </script>
 <template>
   <section>

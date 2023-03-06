@@ -9,9 +9,9 @@ const categorySlug = computed(() => String(route.params.categorySlug || '/'))
 const categorySelected = ref(categorySlug.value)
 
 const {
-  pending,
+  pendingCategory,
   data: category,
-  error
+  errorCategory
 } = useLazyFetch(`https://www.marche.be/nuxt/category.php?site=${siteSlug.value}&slug=${categorySlug.value}`)
 
 function update(categorySelectedSlug) {
@@ -25,11 +25,11 @@ const backName = computed(() => {
 </script>
 <template>
   <section>
-    <div v-if="pending">
+    <div v-if="pendingCategory">
       Loading Category...
     </div>
-    <div v-if="error" class="text-red-600">
-      Error {{ error }}
+    <div v-if="errorCategory" class="text-red-600">
+      Error {{ errorCategory }}
     </div>
     <div v-if="category">
       <div class="flex items-center mb-2">

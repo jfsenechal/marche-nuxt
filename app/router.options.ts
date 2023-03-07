@@ -31,8 +31,8 @@ export default <RouterConfig>{
                     name: 'citoyen-category-children',
                     path: 'select/:categorySelected([a-zA-Z0-9-_]+)',
                     component: () => import('~/components/Category/Posts.vue'),
-                    props: route=>({
-                        siteSlug:route.params.siteSlug,
+                    props: route => ({
+                        siteSlug: route.params.siteSlug,
                         categorySelected: route.params.categorySelected //?? route.params.categorySlug
                     })
                 }

@@ -1,10 +1,10 @@
-export default (siteSlug: String, categorySelected: String) => {
-    const {pending: pendingArticles, data: articles, error: errorArticles} = useLazyFetch(
-        `https://www.marche.be/nuxt/posts.php?site=${siteSlug}&id=${categorySelected}`
+export default (siteSlug: String, articleId: Number) => {
+    const {pending: pendingArticle, data: article, error: errorArticle} = useLazyFetch(
+        `https://www.marche.be/nuxt/post.php?site=${siteSlug}&id=${articleId}`
     );
     return {
-        pendingArticles,
-        articles,
-        errorArticles
+        pendingArticle,
+        article,
+        errorArticle
     };
 }

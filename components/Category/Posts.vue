@@ -1,5 +1,5 @@
 <script setup>
-import articleGet from "~/composables/articleGet";
+import articlesGet from "~/composables/articlesGet";
 import Loader from "@/components/Widget/Loader.vue";
 
 const propos = defineProps({
@@ -14,7 +14,7 @@ const {
   pendingArticles,
   articles,
   errorArticles
-} = articleGet(siteSlug.value, categorySelected);
+} = articlesGet(siteSlug.value, categorySelected);
 
 </script>
 <template>

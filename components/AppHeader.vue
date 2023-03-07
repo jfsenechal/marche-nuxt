@@ -18,6 +18,6 @@ function updateSearch() {
 }
 </script>
 <template>
-  <Header @close-search=closeSearch @open-search="updateSearch" />
+<Header @close-search=closeSearch @open-search="updateSearch" />
  <!-- <PopupSearch @close-search=closeSearch @open-search="openSearch" :searchIsOpen="searchIsOpen" /> -->
 </template>

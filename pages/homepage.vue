@@ -1,18 +1,30 @@
 <script setup>
+import HomeSearch from "@/components/Homepage/HomeSearch.vue";
+import News from "@/components/Homepage/News.vue";
+import Agenda from "@/components/Homepage/Agenda.vue";
+import Widgets from "@/components/Homepage/Widgets.vue";
+import Partners from "@/components/Homepage/Partners.vue";
+
 definePageMeta({
-  title: 'Home Page'
+  layout: 'homelayout'
 })
 </script>
 <template>
-  <section>
-    <h1>Welcome to the homepage</h1>
-    <div>
-      Page: foo
-    </div>
-    <div class="text-red-500">
-      Coucou
-    </div>
-  </section>
+  <HomeSearch/>
+  <main>
+    <section class="mx-2 mx-auto grid grid-cols-1 xl:mx-40 xl:grid-cols-[60%,40%] xl:gap-4">
+      <div>
+        <News/>
+      </div>
+      <div class="shadow-lg">
+        <Agenda/>
+      </div>
+    </section>
+    <section>
+      <Widgets/>
+    </section>
+    <section>
+      <Partners/>
+    </section>
+  </main>
 </template>
-
-<style scoped></style>

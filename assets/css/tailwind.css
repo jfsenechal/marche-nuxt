@@ -1,5 +1,6 @@
-
 @import "assets/css/fonts.css";
+@import "assets/css/icones.css";
+@import "assets/css/widgets.css";
 
 @tailwind base;
 @tailwind components;

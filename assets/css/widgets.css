@@ -1,0 +1,33 @@
+
+.bg-widget-color {
+    background-image: linear-gradient(
+            90deg,
+            rgba(74, 224, 199, 0.55),
+            rgba(74, 224, 199, 0.55)
+    );
+}
+
+.bg-widget-color-hover {
+    background-color: rgba(72, 127, 137, 0.75);
+}
+
+.bg-img-widgets-1 {
+    background-image: url("images/img/img_widget01.jpg");
+}
+
+.bg-img-widgets-2 {
+    background-image: url("images/img/img_widget02.jpg");
+}
+
+.bg-img-widgets-3 {
+    background-image: url("images/img/img_widget03.jpg");
+}
+
+.bg-img-widgets-4 {
+    background-image: url("images/img/img_widget04.jpg");
+}
+
+.bg-img-widgets-5 {
+    background-image: url("images/img/img_widget05.jpg");
+}
+

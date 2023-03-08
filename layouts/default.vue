@@ -1,10 +1,3 @@
-<script setup lang="ts">
-useHead({
-  titleTemplate: (titleChunk: String) => {
-    return titleChunk ? `${titleChunk} - MarcheBe` : 'Site Title2';
-  }
-})
-</script>
 <template>
   <div id="app">
     <AppHeader/>

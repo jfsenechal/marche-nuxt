@@ -3,8 +3,8 @@ import articlesGet from "~/composables/articlesGet";
 import Loader from "@/components/Widget/Loader.vue";
 
 const propos = defineProps({
-  categorySelected: {type: String, required: true},
-  siteSlug: {type: String, required: true}
+  categorySelected: {type: String, required: true, default: ''},
+  siteSlug: {type: String, required: true, default: ''}
 })
 
 const {

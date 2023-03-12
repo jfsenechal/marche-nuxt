@@ -1,14 +1,11 @@
 <script setup>
-const propos = defineProps({categoryId: Number})
-const categoryId = propos.categoryId
-const {path, params} = useRoute()
-const siteSlug = computed(() => String(params.siteSlug || 'citoyen'))
+const propos = defineProps({siteSlug: String, categorySelected:String})
+const emits = defineEmits(['update:categorySelected'])
 const {
   pending,
   data: children,
   error
-} = useLazyFetch(`https://www.marche.be/nuxt/categories.php?site=${siteSlug.value}&id=${categoryId}`)
-
+} = useLazyFetch(`https://www.marche.be/nuxt/categories.php?site=${propos.siteSlug}&slug=${propos.categorySelected}`)
 </script>
 <template>
   <section>
@@ -29,19 +26,21 @@ const {
         <li
             v-for="item in children"
             :key="item.cat_ID"
-            @click.prevent="$emit('updateCategorySelected',item.slug)"
+            :value="item.slug"
+            @click.prevent="emits('update:categorySelected', item.slug)"
             class="border border-cta-dark p-3 font-montserrat-light rounded hover:bg-cta-dark hover:text-white">
-            {{ item.name }}
-        <!--  <NuxtLink :to="{
-                  name: 'category',
-                  params:{
-                      siteSlug:siteSlug,
-                      categories:item.parents,
-                      categorySlug: item.slug ?? 'slug not found' }}">
-              {{ item.name }}
-            </NuxtLink>-->
+          {{ item.name }}
+          <!--  <NuxtLink :to="{
+                    name: 'category',
+                    params:{
+                        siteSlug:siteSlug,
+                        categories:item.parents,
+                        categorySlug: item.slug ?? 'slug not found' }}">
+                {{ item.name }}
+              </NuxtLink>-->
         </li>
       </ul>
+
     </template>
   </section>
 </template>

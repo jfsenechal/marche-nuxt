@@ -8,7 +8,6 @@ const route = useRoute()
 const siteSlug = computed(() => String(route.params.siteSlug || 'citoyen'))
 const categories = computed(() => String(route.params.categories || 'Pas de categories parent'))
 const categorySlug = computed(() => String(route.params.categorySlug || '/'))
-const categorySelected = ref(categorySlug.value)
 
 const {
   pendingCategory,
@@ -20,10 +19,7 @@ const backName = computed(() => {
   return typeof category.value.jf == 'object' ? category.value.jf.name : 'accueil'
 })
 
-function updateCategorySelected(categorySelectedSlug) {
-  console.log("update: " + categorySelectedSlug)
-  categorySelected.value = categorySelectedSlug
-}
+const categorySelected = ref(categorySlug.value)
 </script>
 <template>
   <section>
@@ -45,7 +41,9 @@ function updateCategorySelected(categorySelectedSlug) {
       <h2 class="font-montserrat-semi-bold text-base xl:text-xl leading-7 text-cta-dark">
         {{ category.name }}
       </h2>
-      <Children :categoryId="category.cat_ID" @update-category-selected="updateCategorySelected"/>
+
+      <h3 class="text-citoyen border-b border-administration mb-2">{{ categorySelected }}</h3>
+      <Children v-model:categorySelected="categorySelected" :site-slug="siteSlug" />
       <Posts :key="categorySelected" :category-selected="categorySelected" :site-slug="siteSlug"/>
 
     </div>

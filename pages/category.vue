@@ -43,6 +43,7 @@ const categorySelected = ref(categorySlug.value)
       </h2>
 
       <h3 class="text-citoyen border-b border-administration mb-2">{{ categorySelected }}</h3>
+
       <Children v-model:categorySelected="categorySelected" :site-slug="siteSlug" />
       <Posts :key="categorySelected" :category-selected="categorySelected" :site-slug="siteSlug"/>
 

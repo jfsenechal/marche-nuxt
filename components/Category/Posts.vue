@@ -7,14 +7,11 @@ const propos = defineProps({
   siteSlug: {type: String, required: true}
 })
 
-const categorySelected = propos.categorySelected
-const siteSlug = computed(() => String(propos.siteSlug || 'citoyen'))
-
 const {
   pendingArticles,
   articles,
   errorArticles
-} = articlesGet(siteSlug.value, categorySelected);
+} = articlesGet(propos.siteSlug, propos.categorySelected);
 
 </script>
 <template>

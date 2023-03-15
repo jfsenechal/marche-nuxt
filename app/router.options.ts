@@ -41,6 +41,10 @@ export default <RouterConfig>{
         {
             name: 'homepage',
             path: '/',
+            meta: {
+                layout: false,
+                'title': 'coucou22'
+            },
             component: () => import('~/pages/homepage.vue')
         },
         {

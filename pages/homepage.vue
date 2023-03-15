@@ -5,8 +5,11 @@ import Agenda from "@/components/Homepage/Agenda.vue";
 import Widgets from "@/components/Homepage/Widgets.vue";
 import Partners from "@/components/Homepage/Partners.vue";
 
+const routes = useRoute()
+console.log(routes.meta)
 definePageMeta({
-  layout: false
+  layout: false,
+  title: 'test',
 })
 </script>
 <template>

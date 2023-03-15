@@ -20,6 +20,11 @@ const backName = computed(() => {
 })
 
 const categorySelected = ref(categorySlug.value)
+if (category.value) {
+  throw createError({
+    statusCode: 404,
+    message: 'Catégorie non trouvée'})
+}
 </script>
 <template>
   <section>
@@ -44,7 +49,7 @@ const categorySelected = ref(categorySlug.value)
 
       <h3 class="text-citoyen border-b border-administration mb-2">{{ categorySelected }}</h3>
 
-      <Children v-model:categorySelected="categorySelected" :site-slug="siteSlug" />
+      <Children v-model:categorySelected="categorySelected" :site-slug="siteSlug"/>
       <Posts :key="categorySelected" :category-selected="categorySelected" :site-slug="siteSlug"/>
 
     </div>

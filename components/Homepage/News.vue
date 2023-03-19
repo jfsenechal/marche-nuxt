@@ -1,11 +1,11 @@
 <script setup>
-import eventsGet from "~/composables/eventsGet";
+import newsGet from "~/composables/newsGet";
 
 const {
   pendingNews,
   news,
   errorNews
-} = eventsGet()
+} = newsGet()
 </script>
 <template>
   <h2 class="py-2 px-4 text-center font-montserrat-bold text-2xl text-cta-dark lg:text-left xl:p-4">
@@ -17,7 +17,7 @@ const {
   <template v-if="errorNews" class="text-red-600">
     Error {{ errorNews }}
   </template>
-  <ul class="pt-2 xl:pt-0 grid grid-cols-1 gap-2 xl:grid-cols-[repeat(3,minmax(0,1fr))]" v-if="news">
+  <ul class="pt-2 xl:pt-0 grid grid-cols-1 gap-2 lg:gap-4 xl:grid-cols-[repeat(3,minmax(0,1fr))]" v-if="news">
     <li
         v-for="item in news.slice(0, 6)"
         :id="item.ID"

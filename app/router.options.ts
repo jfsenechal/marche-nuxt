@@ -1,7 +1,23 @@
 import type {RouterConfig} from '@nuxt/schema'
 // https://router.vuejs.org/api/interfaces/routeroptions.html
 export default <RouterConfig>{
-    routes: (_routes) => [
+    routes: (_routes) => [,
+        {
+            name: 'agenda',
+            path: '/agenda',
+            meta: {
+                title: 'Agenda'
+            },
+            component: () => import('~/pages/agendaList.vue')
+        },
+        {
+            name: 'news',
+            path: '/news',
+            meta: {
+                title: 'Actu'
+            },
+            component: () => import('~/pages/newsList.vue')
+        },
         {
             name: 'article',
             path: '/:siteSlug(administration|culture|economie|enfance|enfance-jeunesse|sante|social|sport|tourisme)/:categories([a-z-_]+)*\/:articleSlug([a-z0-9-_]+-):articleId(\\d+)',
@@ -24,6 +40,7 @@ export default <RouterConfig>{
         },
         {
             name: 'citoyen-category',
+            middleware: ['first'],
             path: '/:categories([a-z-_]+)*\/:categorySlug([a-zA-Z0-9-_]+)',
             component: () => import('~/pages/category.vue'),
             children: [
@@ -43,7 +60,7 @@ export default <RouterConfig>{
             path: '/',
             meta: {
                 layout: false,
-                'title': 'coucou22'
+                title: 'coucou22'
             },
             component: () => import('~/pages/homepage.vue')
         },

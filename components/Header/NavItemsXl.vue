@@ -3,19 +3,19 @@ defineEmits(["open-search"]);
 </script>
 <template>
   <li class="hidden xl:list-item nav-top font-montserrat-semi-bold text-cta-dark">
-    <a href="#">E-guichet</a>
+    <NuxtLink to="https://eguichet.marche.be">E-guichet</NuxtLink>
   </li>
   <li class="hidden xl:list-item nav-top font-montserrat-semi-bold">
-    <a href="#">Actualités</a>
+    <NuxtLink to="news">Actualités</NuxtLink>
   </li>
   <li class="hidden xl:list-item nav-top font-montserrat-semi-bold">
-    <a href="#">Horaires-Contact</a>
+    <NuxtLink to="agenda">Horaires-Contact</NuxtLink>
   </li>
   <li class="hidden xl:list-item nav-top font-montserrat-semi-bold">
-    <a href="#">Agenda</a>
+  <NuxtLink to="agenda">Agenda</NuxtLink>
   </li>
   <li class="hidden xl:list-item nav-top font-montserrat-semi-bold">
-    <a href="#">Inondation</a>
+    <NuxtLink to="agenda">Inondation</NuxtLink>
   </li>
   <li class="hidden xl:list-item nav-top font-montserrat-semi-bold" title="Rechercher">
     <a href="/" @click.prevent="$emit('open-search')">

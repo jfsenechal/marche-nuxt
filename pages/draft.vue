@@ -1,7 +1,5 @@
 <script setup>
-definePageMeta({
-  title: 'About'
-})
+
 </script>
 <template>
   <div>

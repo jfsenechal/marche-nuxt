@@ -19,6 +19,11 @@ export default <RouterConfig>{
             component: () => import('~/pages/newsList.vue')
         },
         {
+            name: 'draft',
+            path: '/draft',
+            component: () => import('~/pages/draft.vue')
+        },
+        {
             name: 'article',
             path: '/:siteSlug(administration|culture|economie|enfance|enfance-jeunesse|sante|social|sport|tourisme)/:categories([a-z-_]+)*\/:articleSlug([a-z0-9-_]+-):articleId(\\d+)',
             component: () => import('~/pages/article.vue')

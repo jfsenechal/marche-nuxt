@@ -21,6 +21,9 @@ export default <RouterConfig>{
         {
             name: 'draft',
             path: '/draft',
+            meta: {
+                layout: false,
+            },
             component: () => import('~/pages/draft.vue')
         },
         {

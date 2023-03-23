@@ -1,22 +1,9 @@
 <template>
   <NuxtLayout name="emptylayout">
-    <header class="bg-white">
-      <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div class="flex lg:flex-1">
-          <a href="#" class="-m-1.5 p-1.5">
-            <span class="sr-only">Marche-en-Famenne</span>
-            <img class="h-8 w-auto" src="/images/img_logo.png" alt=""/>
-          </a>
-        </div>
-        <div class="flex lg:hidden">
-          <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                  @click="mobileMenuOpen = true">
-            <span class="sr-only">Open main menu</span>
-            <Bars3Icon class="h-6 w-6" aria-hidden="true"/>
-          </button>
-        </div>
+    <header class="bg-white shadow-md">
+      <nav class="mx-auto relative h-20 flex lg:flex-1 max-w-7xl items-stretch justify-between lg:px-8" aria-label="Global">
         <PopoverGroup class="hidden lg:flex lg:gap-x-12">
-          <Popover class="relative">
+          <Popover class="relative flex">
             <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
               Vivre à Marche
               <ChevronDownIcon class="h-5 w-5 flex-none text-gray-400" aria-hidden="true"/>
@@ -49,9 +36,8 @@
               </PopoverPanel>
             </transition>
           </Popover>
-
-          <a v-for="item in items" :key="item.id" href="#"
-             class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</a>
+          <a v-for="item in items" :key="item.id" :href="item.link"
+             class="flex items-center border-transparent hover:border-b hover:border-cta-dark h-full text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</a>
         </PopoverGroup>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
@@ -87,6 +73,7 @@ import {
 import {ChevronDownIcon, PhoneIcon, PlayCircleIcon} from '@heroicons/vue/20/solid'
 
 import menuGet from "~/composables/menuGet";
+import IconesSocial from "@/components/Header/IconesSocial.vue";
 
 const {
   pendingMenu,

@@ -17,6 +17,10 @@
         @apply antialiased text-cta-dark;
     }
 
+    * {
+      /*  outline: 1px red solid;*/
+    }
+
     img, video, iframe {
         @apply object-cover max-w-full object-top-center;
         block-size: auto;

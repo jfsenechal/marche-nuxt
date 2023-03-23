@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@headlessui/vue": "^1.7.12",
+    "@headlessui/tailwindcss": "^0.1.2",
     "@heroicons/vue": "^2.0.16",
     "@nuxtjs/tailwindcss": "^6.4.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",

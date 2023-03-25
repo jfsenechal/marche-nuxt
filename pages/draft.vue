@@ -37,7 +37,7 @@
             </transition>
           </Popover>
           <a v-for="item in items" :key="item.id" :href="item.link"
-             class="flex items-center border-transparent hover:border-b hover:border-cta-dark h-full text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</a>
+             class="inline-flex items-center border-b-2 border-transparent hover:border-b-2 hover:border-cta-light text-sm font-montserrat-semi-bold leading-6 text-gray-900">{{ item.name }}</a>
         </PopoverGroup>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span

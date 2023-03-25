@@ -40,7 +40,7 @@
              class="inline-flex items-center border-b-2 border-transparent hover:border-b-2 hover:border-cta-light text-sm font-montserrat-semi-bold leading-6 text-gray-900">{{ item.name }}</a>
         </PopoverGroup>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
+          <a href="#" class="inline-flex items-center text-sm font-semibold leading-6 text-gray-900">Log in <span
               aria-hidden="true">&rarr;</span></a>
         </div>
       </nav>

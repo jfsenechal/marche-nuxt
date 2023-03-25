@@ -4,7 +4,7 @@
       <nav class="mx-auto relative h-20 flex lg:flex-1 max-w-7xl items-stretch justify-between lg:px-8" aria-label="Global">
         <PopoverGroup class="hidden lg:flex lg:gap-x-12">
           <Popover class="relative flex">
-            <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+            <PopoverButton class="border-b-2 border-transparent hover:border-b-2 hover:border-cta-light flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
               Vivre à Marche
               <ChevronDownIcon class="h-5 w-5 flex-none text-gray-400" aria-hidden="true"/>
             </PopoverButton>

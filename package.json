@@ -8,8 +8,8 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@headlessui/vue": "^1.7.12",
     "@headlessui/tailwindcss": "^0.1.2",
+    "@headlessui/vue": "^1.7.12",
     "@heroicons/vue": "^2.0.16",
     "@nuxtjs/tailwindcss": "^6.4.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
@@ -17,6 +17,8 @@
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
     "@vueuse/core": "^9.13.0",
-    "nuxt": "^3.3.1"
+    "nuxt": "^3.3.1",
+    "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.5"
   }
 }

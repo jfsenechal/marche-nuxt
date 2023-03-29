@@ -25,14 +25,15 @@ function openMenuVivre() {
 }
 </script>
 <template>
-  <nav class="h-20 musshadow fixed bottom-0 top-auto right-0 left-0 xl:static">
-    <ul class="h-20 grid grid-cols-5 items-center justify-evenly bg-cta-dark text-white xl:flex xl:bg-white xl:text-cta-dark"
+  <nav class="relative h-16 flex px-2 lg:px-8" aria-label="Global">
+    <ul class="flex items-stretch bg-cta-dark text-white xl:flex xl:bg-white xl:text-cta-dark"
         id="navigationTop">
       <NavIconHomeMobile/>
       <NavIconSearchMobile/>
       <li
-          class="nav-top xl:font-montserrat-semi-bold xl:transition-all xl:duration-500 btn-vivre xl:py-12 ">
-        <a href="#" class="hidden xl:flex">
+          class="hidden px-3 xl:flex xl:items-stretch xl:font-montserrat-semi-bold xl:transition-all xl:duration-500 btn-vivre">
+        <a href="#"
+           class="hidden xl:inline-flex items-center border-b-2 border-transparent hover:border-b-2 hover:border-cta-light  leading-6 text-cta-dark">
           <IconMenuVivreSvg/>
           Vivre à Marche
         </a>
@@ -54,15 +55,6 @@ function openMenuVivre() {
 </template>
 <style>
 
-li.nav-top {
-  @apply px-3 xl:text-cta-dark
-  xl:transition-shadow xl:duration-300 xl:ease-in-out;
-}
-
-li.nav-top:hover {
-  box-shadow: 0 -3px 0 0 #4ae0c7 inset;
-}
-
 .btn-vivre:hover > nav {
   @apply xl:block
 }
@@ -76,8 +68,8 @@ li.nav-top:hover {
 }
 
 .musshadow {
-  box-shadow: 0 -0.125rem 0.45rem rgba(0, 0, 0, 0.75);
-  @apply lg:shadow-none
+  /* box-shadow: 0 -0.125rem 0.45rem rgba(0, 0, 0, 0.75);
+   @apply lg:shadow-none*/
 }
 
 </style>

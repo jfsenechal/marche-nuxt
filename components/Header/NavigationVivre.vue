@@ -9,6 +9,9 @@ const {
   errorMenu
 } = menuGet()
 
+const propos = defineProps(['mobileMenuOpen'])
+const emit = defineEmits(['update:mobile-menu-open'])
+
 /**
  * Ouvre et ferme-le sous menu d'un onglet de vivre
  * @param blogid
@@ -24,19 +27,11 @@ function toggleSubMenu(blogid, action) {
   }
 }
 
-/**
- * Ouvre et ferme menu vivre en version mobile
- * @param action
- */
-function toggleMenu(action) {
-  const menu = document.querySelector("#menu-vivre");
-  if (action === "close") {
-    menu.style.top = "100%";
-  }
-  if (action === "open") {
-    menu.style.top = 0;
-  }
+function closeMenu()
+{
+  emit('update:mobile-menu-open', false)
 }
+
 </script>
 <template>
   <template v-if="pendingMenu">
@@ -47,11 +42,12 @@ function toggleMenu(action) {
   </template>
   <template v-if="menu">
     <nav
-        class="xl:hidden fixed bg-cta-dark top-full bottom-0 left-0 right-0 h-full xl:h-auto xl:top-16 xl:bottom-auto xl:pb-4 w-full transition-all duration-500"
+        class="xl:hidden fixed bg-cta-dark bottom-0 left-0 right-0 h-full xl:h-auto xl:top-16 xl:bottom-auto xl:pb-4 w-full transition-all duration-500"
+        :class="mobileMenuOpen ? 'top-0' : 'top-full'"
         id="menu-vivre">
       <ul
           class="flex flex-col items-start xl:items-stretch justify-start h-full xl:h-auto mt-3 box-border xl:max-w-[50%]">
-        <NavigationVivreTitleMobile @toggle-menu="toggleMenu"/>
+        <NavigationVivreTitleMobile @close-menu="closeMenu"/>
         <li
             v-for="item in menu"
             :data-top-id="item.blogid"

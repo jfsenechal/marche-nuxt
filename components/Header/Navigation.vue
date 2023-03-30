@@ -16,17 +16,15 @@ function closeSearch() {
   emit("close-search");
 }
 
-/**
- * Open main menu mobile
- */
-function openMenuVivre() {
-  const menu = document.querySelector("#menu-vivre");
-  menu.style.top = "0";
-}
+const mobileMenuOpen = ref(false)
+
+watch(mobileMenuOpen, (newPost) => {
+  console.log("mobile " + mobileMenuOpen.value)
+})
 </script>
 <template>
-  <nav class="musshadow xl:shadow-none fixed bottom-0 top-auto right-0 left-0 xl:relative h-16 flex lg:px-8" aria-label="Global">
-    <!-- class="h-20 grid grid-cols-5 items-center justify-evenly bg-cta-dark text-white xl:flex xl:bg-white xl:text-cta-dark" -->
+  <nav class="musshadow xl:shadow-none fixed bottom-0 top-auto right-0 left-0 xl:relative h-16 flex lg:px-8"
+       aria-label="Global">
     <ul class="grid grid-cols-5 w-full items-center justify-evenly bg-cta-dark text-white lg:justify-start lg:items-stretch xl:flex xl:bg-white xl:text-cta-dark"
         id="navigationTop">
       <NavIconHomeMobile/>
@@ -39,15 +37,15 @@ function openMenuVivre() {
           Vivre à Marche
         </a>
         <label for="checkboxMenu" class="icon-menu-mobile cursor-pointer">
-          <button name="menu" @click="openMenuVivre">
+          <button name="menu" @click="mobileMenuOpen=true">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                  stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
             </svg>
           </button>
           <span class="text-menu-mobile">Menu</span>
         </label>
-        <NavigationVivre/>
+        <NavigationVivre v-model:mobileMenuOpen="mobileMenuOpen"/>
       </li>
       <NavIconCommuneShortCutMobile/>
       <NavItemsXl @open-search="openSearch"/>
@@ -69,8 +67,8 @@ function openMenuVivre() {
 }
 
 .musshadow {
-   box-shadow: 0 -0.125rem 0.45rem rgba(0, 0, 0, 0.75);
-   @apply lg:shadow-none
+  box-shadow: 0 -0.125rem 0.45rem rgba(0, 0, 0, 0.75);
+  @apply lg:shadow-none
 }
 
 </style>

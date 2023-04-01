@@ -9,9 +9,8 @@ const {
   errorMenu
 } = menuGet()
 
-const propos = defineProps(['mobileMenuOpen'])
 const emit = defineEmits(['update:mobile-menu-open'])
-
+defineProps(['mobileMenuOpen'])
 /**
  * Ouvre et ferme-le sous menu d'un onglet de vivre
  * @param blogid
